@@ -3,18 +3,17 @@
 
 makeCacheMatrix <- function(x = matrix()) {
         m<null
-        set<function(y){                   ## Initiate the function to create new matrix
+        set<function(y){                                   ## Initiate the function to create new matrix
                 x <<- y
                 m<<- NULL
         }
-        get <- function() x                ## Return the matrix
+        get <- function() x                                 ## Return the matrix
         setinverse <- function(inverse) m <<- inverse      ## set the inverse value of the matrix
         getinverse <- function() m                         ## get value of the inverse matrix
         list(set = set, get = get,
              setinverse = setinverse,
              getinverse = getinverse)      
 }
-
 
 ## cashSolve computes the inverse of the special "matrix" returned by makeCacheMatrix above.
 
@@ -30,4 +29,4 @@ cacheSolve <- function(x, ...) {
         m<- Solve(data,...)                                     ## Get the inverse using the function
         x$setinverse(m)
         m                                                       ## Return the matrix
-        
+}               
